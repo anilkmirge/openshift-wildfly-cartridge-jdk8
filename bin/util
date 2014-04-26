@@ -13,12 +13,13 @@ function update-configuration() {
   else
     export JAVA_HOME=$OPENSHIFT_WILDFLY_JDK6
   fi
-
+  echo $JAVA_HOME > $OPENSHIFT_WILDFLY_DIR/env/OPENSHIFT_WILDFLY_JDK8
   echo $JAVA_HOME > $OPENSHIFT_WILDFLY_DIR/env/JAVA_HOME
   echo "$JAVA_HOME/bin:$M2_HOME/bin:$OPENSHIFT_WILDFLY_DIR/bin/tools" > $OPENSHIFT_WILDFLY_DIR/env/OPENSHIFT_WILDFLY_PATH_ELEMENT
 }
 
 function setup-jdk-8() {
+  echo "Downloading and Configuring Java 8"
   if [ ! -d "${OPENSHIFT_DATA_DIR}/jdk" ]; then
     mkdir -p ${OPENSHIFT_DATA_DIR}/jdk
   fi
@@ -29,5 +30,5 @@ function setup-jdk-8() {
     tar -zxf jdk-8u5-linux-x64.tar.gz
     rm jdk-8u5-linux-x64.tar.gz
   fi
-
+  echo "Java 8 Downloaded"
 }
