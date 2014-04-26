@@ -28,7 +28,7 @@ This cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on
 
 To access the Admin Console, you'll need to forward the ports to localhost.  To do this run 'rhc port-forward' as below:
 
-	corey$ rhc port-forward wildfly
+	$ rhc port-forward wildfly
 	Checking available ports ... done
 	Forwarding ports ...
 
