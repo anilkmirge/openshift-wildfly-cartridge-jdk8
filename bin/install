@@ -50,5 +50,4 @@ client_result ""
 touch ${OPENSHIFT_WILDFLY_DIR}/env/OPENSHIFT_WILDFLY_CLUSTER
 #touch ${OPENSHIFT_WILDFLY_DIR}/env/OPENSHIFT_JBOSSAS_CLUSTER_REMOTING
 
-#update-configuration java7
-setup-jdk-8
+update-configuration java8

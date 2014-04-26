@@ -6,6 +6,10 @@ function update-configuration() {
   if marker_present java7 || [ ${1:-undefined} == java7 ]
   then
     export JAVA_HOME=$OPENSHIFT_WILDFLY_JDK7
+  elif marker_present java8 || [ ${1:-undefined} == java8 ]
+  then
+    setup-jdk-8
+    export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
   else
     export JAVA_HOME=$OPENSHIFT_WILDFLY_JDK6
   fi
@@ -26,7 +30,4 @@ function setup-jdk-8() {
     rm jdk-8u5-linux-x64.tar.gz
   fi
 
-  export JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
-  echo $JAVA_HOME > $OPENSHIFT_WILDFLY_DIR/env/JAVA_HOME
-  echo "$JAVA_HOME/bin:$M2_HOME/bin:$OPENSHIFT_WILDFLY_DIR/bin/tools" > $OPENSHIFT_WILDFLY_DIR/env/OPENSHIFT_WILDFLY_PATH_ELEMENT
 }
