@@ -24,6 +24,10 @@ This cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on
 
         jboss-cli.sh -c --controller=$OPENSHIFT_WILDFLY_IP:$OPENSHIFT_WILDFLY_MANAGEMENT_HTTP_PORT
 
+### Accessing the Admin Console
+
+To access the Admin Console, you'll need to forward the ports to localhost.  To do this run 'rhc port-forward' as below:
+
 	corey$ rhc port-forward wildfly
 	Checking available ports ... done
 	Forwarding ports ...
@@ -37,3 +41,5 @@ This cartridge provides an OpenShift compatible wrapper of the JBoss CLI tool on
 	java    127.0.0.1:9999  =>  127.13.118.129:9999
 	
 In this example you would visit 127.0.0.1:9990 to view the wildfly admin panel from your local computer.
+
+Remember you'll need the WildFly user and password that can be found by looking at the env variables for OPENSHIFT_WILDFLY_PASSWORD and OPENSHIFT_WILDFLY_USERNAME
